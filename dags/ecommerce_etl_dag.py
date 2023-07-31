@@ -88,17 +88,6 @@ with DAG(
             task_id="get_platinum_customer_task",
             python_callable=get_platinum_customer)
 
-    # we may want to send an email with files after processing. This can be
-    # done via an EmailOperator
-    '''
-        send_sample_dataset_email = EmailOperator(
-            task_id='send_sample_dataset_email',
-            to='thagana44@gmail.com',
-            subject='Ecomm Industries Pipeline Report',
-            html_content=""" <h1>Ecomm Industries Daily Summary and error report for {{ ds }}</h1> """,
-            files=[f'{sample_base_filepath}/basket_analysis.csv', f'{sample_base_filepath}/recommendation_engine_analysis.csv'],
-            )
 
-    '''
 
 extraction_group >> create_table_platinum_customer_table >> processing_group
