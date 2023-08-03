@@ -1,10 +1,8 @@
-FROM python:3.8.3-alpine
-
-RUN pip install --no-cache-dir --upgrade pip
-
+FROM python:3.9.17-alpine3.18
 WORKDIR /app
+
 COPY . .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD [ "python3","app.py" ]
